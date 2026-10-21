@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "CRCsingle: single-sample molecular subtyping of colorectal cancer"
+version: 0.1.0
+date-released: 2026-10-21
+authors:
+  - family-names: Tiwari
+    given-names: Madhuri
+    email: 17madhuritiwari@gmail.com
+license: MIT
+repository-code: "https://github.com/Maddy1712/CRCsingle"

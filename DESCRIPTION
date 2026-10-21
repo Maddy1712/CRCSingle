@@ -1,0 +1,14 @@
+Package: CRCsingle
+Type: Package
+Title: Single-Sample Molecular Subtyping of Colorectal Cancer
+Version: 0.1.0
+Authors@R: person("Madhuri", "Tiwari", email = "17madhuritiwari@gmail.com", role = c("aut", "cre"))
+Description: Assigns one of three molecular subtypes (S1-S3) to individual colorectal cancer expression profiles using within-sample gene ranks, a platform-stable gene set and a margin-based confidence call. An optional cohort-adjusted mode is available for datasets with many samples.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: stats, utils
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown
+VignetteBuilder: knitr
+URL: https://github.com/Maddy1712/CRCsingle
+BugReports: https://github.com/Maddy1712/CRCsingle/issues

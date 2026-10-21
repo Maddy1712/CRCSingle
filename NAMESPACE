@@ -1,0 +1,4 @@
+export(predict_subtype)
+export(crc_panel)
+export(crc_example)
+importFrom(stats, cor)
