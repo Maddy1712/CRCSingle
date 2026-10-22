@@ -1,0 +1,43 @@
+---
+title: "CRCsingle: single-sample colorectal cancer subtyping"
+author: "Madhuri Tiwari"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{CRCsingle}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+CRCsingle assigns one of three subtypes (S1, S2, S3) to each colorectal cancer sample. By default each sample is scored on its own, using within-sample gene ranks, so no cohort is needed. Samples with a low margin between the best and second-best subtype are called `Unclassified`.
+
+## Single-sample prediction
+
+```{r}
+library(CRCsingle)
+x <- crc_example()
+dim(x)
+res <- predict_subtype(x)
+head(res)
+table(res$call)
+```
+
+## One sample
+
+```{r}
+predict_subtype(x[, 1, drop = FALSE])
+```
+
+## Lite model and cohort-adjusted mode
+
+The lite model uses 100 genes. With a cohort of at least 20 samples, `cohort_adjust = TRUE` standardises genes across the cohort, which improves agreement with CMS but is no longer single-sample.
+
+```{r}
+table(predict_subtype(x, model = "lite")$call)
+table(predict_subtype(x, cohort_adjust = TRUE)$call)
+```
+
+## Input requirements
+
+Genes as HGNC symbols in the row names, log-scale expression (log2 microarray or log-CPM), no duplicated symbols, no missing values in the reference genes.
